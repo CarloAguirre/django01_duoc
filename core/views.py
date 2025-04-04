@@ -7,3 +7,6 @@ def home(request):
 
 def animales(request):
 	return render(request, 'core/animales.html')
+
+def lugares(request):
+	return render(request, 'core/Lugarestf.html')
