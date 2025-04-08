@@ -1,9 +1,7 @@
 from django.shortcuts import render
 
 def home(request):
-	frutas_favoritas = ['manzana', 'coco', 'tuna']
-	contexto = {"nombre": "Carlo", "apellido": "Aguirre", "frutas": frutas_favoritas}
-	return render(request, 'core/home.html', contexto)
+	return render(request, 'core/home.html')
 
 def animales(request):
 	return render(request, 'core/animales.html')
@@ -40,3 +38,7 @@ def inicioSesion(request):
 
 def miCuenta(request):
 	return render(request, 'core/micuentatf.html')
+
+def logros(request):
+	return render(request, 'core/Logros.html')
+

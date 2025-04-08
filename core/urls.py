@@ -1,7 +1,7 @@
 
 from django.contrib import admin
 from django.urls import path
-from .views import home, animales, lugares, enemigos, construcciones, plantas, armas, consumibles, historia, foroWiki, registrarse, inicioSesion, miCuenta
+from .views import home, animales, lugares, enemigos, construcciones, plantas, armas, consumibles, historia, foroWiki, registrarse, inicioSesion, miCuenta, logros
 
 urlpatterns = [
     path('', home, name='home'),
@@ -16,5 +16,7 @@ urlpatterns = [
     path('foroWiki', foroWiki, name='foroWiki'),
     path('registrarse', registrarse, name='registrarse'),
     path('inicioSesion', inicioSesion, name='inicioSesion'),
-    path('miCuenta', miCuenta, name='miCuenta')
+    path('miCuenta', miCuenta, name='miCuenta'),
+    path('logros', logros , name='logros'),
 ]
+
