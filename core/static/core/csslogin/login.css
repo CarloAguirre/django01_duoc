@@ -26,6 +26,10 @@ body {
 #subir{
     margin-top: 20px;
 }
+.input_wrapper {
+    display: flex;
+    flex-direction: column !important;
+}
 
 .button {
     background-color: #2b97fd;

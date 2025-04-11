@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .forms import RegistroForm
+from django.contrib.auth import login
+from django.contrib.auth.forms import AuthenticationForm
 
 def home(request):
 	return render(request, 'core/home.html')
@@ -31,10 +34,27 @@ def foroWiki(request):
 	return render(request, 'core/forowiki.html')
 
 def registrarse(request):
-	return render(request, 'core/registrase_wiki.html')
+    if request.method == 'POST':
+        form = RegistroForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('inicioSesion')
+        else:
+            print(form.errors)  
+    else:
+        form = RegistroForm()
+    return render(request, 'core/registrase_wiki.html', {'form': form})
 
 def inicioSesion(request):
-	return render(request, 'core/inicio_sesion_wiki.html')
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('home') 
+    else:
+        form = AuthenticationForm()
+    return render(request, 'core/inicio_sesion_wiki.html', {'form': form})
 
 def miCuenta(request):
 	return render(request, 'core/micuentatf.html')
