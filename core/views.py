@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from .forms import RegistroForm, EditarUsuarioForm
 from django.contrib.auth import login
 from django.contrib.auth.forms import AuthenticationForm
-from django.db import connection
 from django.db import transaction
 
 def home(request):
@@ -61,16 +60,13 @@ def inicioSesion(request):
 @transaction.atomic
 def miCuenta(request):
     usuario = request.user
-    print(request.user)
     if request.method == 'POST':
         form = EditarUsuarioForm(request.POST, instance=usuario)
         if form.is_valid():
-            print(usuario.pk)
             form.save()
             return redirect('miCuenta')
     else:
         form = EditarUsuarioForm(instance=usuario)
-        print('hola')
 
     return render(request, 'core/micuentatf.html', {'form': form, 'usuario': usuario})
 

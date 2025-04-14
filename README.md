@@ -1,7 +1,7 @@
-Este proyecto utiliza Django conectado a Oracle Cloud usando el cliente cx_Oracle y un wallet integrado. La estructura ya incluye formularios de registro e inicio de generados con Django authentication system (https://docs.djangoproject.com/en/5.1/topics/auth/default/)
+Este proyecto utiliza Django conectado a Oracle Cloud usando el cliente cx_Oracle y un wallet integrado. La estructura ya incluye formularios de registro e inicio de generados con Django authentication system, ademas de "roles" como "IS_SUPERUSER", "IS_STAFF" (https://docs.djangoproject.com/en/5.1/topics/auth/default/)
 
 🚧 Requisitos
-- Python 3.10.6 (muy recomendable, versiones distintas pueden causar errores con cx_Oracle)
+- Python 3.10.6 o versiones anteriores (muy recomendable, versiones distintas pueden causar errores con cx_Oracle)
 
 - Git
 
