@@ -24,4 +24,4 @@ En Git Bash:
 4. Instalar dependencias
 ```pip install -r requirements.txt```
 
-4. Configurar la ruta de la wallet en el archivo 'core/db/wallet/sqlnet.ora'. Debe reflejar la ruta real en la que este la carpeta wallet en su computador, por ejemplo: 'C:\Users\usuario\Desktop\primer_django_app\core\db\wallet'
+4. Configurar la ruta de la wallet en el archivo 'core/db/wallet/sqlnet.ora'. Debe reflejar la ruta real en la que este la carpeta wallet en su computador, por ejemplo: 'DIRECTORY=C:\Users\usuario\Desktop\primer_django_app\core\db\wallet'
