@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from .forms import RegistroForm, EditarUsuarioForm
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.db import transaction
+from django.contrib.auth.decorators import login_required
 
 def home(request):
 	return render(request, 'core/home.html')
@@ -58,6 +59,7 @@ def inicioSesion(request):
     return render(request, 'core/inicio_sesion_wiki.html', {'form': form})
 
 @transaction.atomic
+@login_required(login_url='inicioSesion') 
 def miCuenta(request):
     usuario = request.user
     if request.method == 'POST':
@@ -73,3 +75,6 @@ def miCuenta(request):
 def logros(request):
 	return render(request, 'core/Logros.html')
 
+def cerrar_sesion(request):
+    logout(request)
+    return redirect('inicioSesion')

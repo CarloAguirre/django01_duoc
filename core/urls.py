@@ -1,6 +1,8 @@
 
 from django.contrib import admin
 from django.urls import path
+from . import views
+from django.contrib.auth.views import LogoutView
 from .views import home, animales, lugares, enemigos, construcciones, plantas, armas, consumibles, historia, foroWiki, registrarse, inicioSesion, miCuenta, logros
 
 urlpatterns = [
@@ -18,5 +20,6 @@ urlpatterns = [
     path('inicioSesion', inicioSesion, name='inicioSesion'),
     path('miCuenta', miCuenta, name='miCuenta'),
     path('logros', logros , name='logros'),
+	path('logout/', views.cerrar_sesion, name='logout'),
 ]
 
